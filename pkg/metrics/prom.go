@@ -14,8 +14,8 @@ var (
 	// associated with a single IP in a Subnet.
 	promGaugeIpMacAdddresses = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
-			Name: "network_ip_mac_address_current",
-			Help: "network_ip_mac_address_current is the number of mac addresses seen with a current IP address",
+			Name: "arpwatcher_ip_mac_address_current",
+			Help: "arpwatcher_ip_mac_address_current is the number of mac addresses seen with a current IP address",
 		},
 		[]string{
 			promLabelIPAddress,
@@ -25,8 +25,8 @@ var (
 	// promGaugeMacAddressIps is a gauge of how many IP's a single mac address has
 	promGaugeMacAddressIPs = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
-			Name: "network_arping_mac_address_ip_current",
-			Help: "network_arping_mac_address_ip_current is the number of ip address associate with a single mac address",
+			Name: "arpwatcher_mac_address_ip_current",
+			Help: "arpwatcher_mac_address_ip_current is the number of ip address associate with a single mac address",
 		},
 		[]string{
 			promLabelMacAddress,
@@ -36,23 +36,24 @@ var (
 	// promGaugeIPAddresses is a guage of the number of free ips in the cidr block.
 	promGaugeIPAddresses = prometheus.NewGauge(
 		prometheus.GaugeOpts{
-			Name: "network_arping_ip_addresses",
-			Help: "network_arping_ip_addresses_unique is a guage of the number of ip adddresses",
+			Name: "arpwatcher_ip_addresses",
+			Help: "arpwatcher_ip_addresses_unique is a guage of the number of ip adddresses",
 		},
 	)
 
 	// promGaugeUniqueMacAddresses is a guage of the number of free ips in the cidr block.
 	promGaugeUniqueMacAddresses = prometheus.NewGauge(
 		prometheus.GaugeOpts{
-			Name: "network_arping_mac_addresses_unique",
-			Help: "network_arping_mac_addresses_unique is a guage of the unique mac addresses seen",
+			Name: "arpwatcher_mac_addresses_unique",
+			Help: "arpwatcher_mac_addresses_unique is a guage of the unique mac addresses seen",
 		},
 	)
 
+	// promCounterMacReplies is a counter tracking the number of replies per instance.
 	promCounterMacReplies = prometheus.NewCounter(
 		prometheus.CounterOpts{
-			Name: "network_arping_replies",
-			Help: "network_arping_replies is a counter of the number of replies",
+			Name: "arpwatcher_replies",
+			Help: "arpwatcher_replies is a counter of the number of replies",
 		},
 	)
 )
