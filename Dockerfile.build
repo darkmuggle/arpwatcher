@@ -1,0 +1,6 @@
+FROM golang:1.19-bullseye
+
+RUN mkdir /src
+COPY . /src
+RUN cd /src && go build -o /usr/local/bin/arpwatcher cmd/main.go
+RUN rm -rf /src
